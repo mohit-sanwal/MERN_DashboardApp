@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import Nav from './Nav.js'
 
 
 function App() {
@@ -22,22 +23,18 @@ function App() {
   console.log('appData', appData);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+    <div className="">
         {appData?.data}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <BrowserRouter>
+          <Nav></Nav>
+          <Routes>
+             <Route path="/" element={<h1>Product listing</h1>}/>
+             <Route path="/add" element={<h1>add Product </h1>}/>
+             <Route path="/update" element={<h1>update Product</h1>}/>
+             <Route path="/profile" element={<h1>Profile page</h1>}/>
+             <Route path="/logout" element={<h1> logout </h1>}/>
+          </Routes>
+        </BrowserRouter>
     </div>
   );
 }
