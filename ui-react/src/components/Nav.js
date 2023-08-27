@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 
 import { Link } from 'react-router-dom';
 
-import './App.css';
+import '../App.css';
 
 
 function Nav() {
@@ -14,6 +14,7 @@ function Nav() {
           <li><Link to="/update"> update Products</Link></li>
           <li><Link to="/profile">Profile</Link></li>
           <li><Link to="/logout">logout</Link></li>
+          <li><Link to="/signup">signup</Link></li>
        </ul>
     </div>
   );

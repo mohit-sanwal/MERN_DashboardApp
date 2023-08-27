@@ -2,8 +2,9 @@ import {useEffect, useState} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import Nav from './Nav.js';
-import Footer from './Footer.jsx';
+import Nav from './components/Nav.js';
+import Footer from './components/Footer.jsx';
+import SignUp from './components/SignUp.js';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/update" element={<h1>update Product</h1>}/>
           <Route path="/profile" element={<h1>Profile page</h1>}/>
           <Route path="/logout" element={<h1> logout </h1>}/>
+          <Route path="/signup" element={<SignUp />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
