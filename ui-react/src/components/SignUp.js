@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import "../App.css";
 
 
 export default function SignUp() {
     const [name, setName] = useState("");
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
-    const collectData = () => {
+    const collectData = async() => {
         if (!name || !email || !password) { alert('please provide all the details')}
         let userSignupInfo = {
             name,
@@ -15,6 +17,17 @@ export default function SignUp() {
             password
         }
         console.log('userSignupInfo', userSignupInfo);
+        const userSignUpData = await fetch('http://localhost:5000/register', {
+         method: "POST",
+         body:  JSON.stringify(userSignupInfo),
+         headers: {
+            'Content-Type': 'application/json'
+         }
+        })
+        const  userSignUpResp = await userSignUpData.json();
+        if (userSignUpResp.email) {
+         navigate('/');
+        }
     }
 
     return(
