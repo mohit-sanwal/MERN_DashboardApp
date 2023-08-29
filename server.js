@@ -11,6 +11,9 @@ const corsOptions ={
   optionSuccessStatus:200,
 }
 
+app.use(cors(corsOptions));
+
+
 app.post('/register', async (req, resp) => {
   // console.log('test', req, resp);
   let user = new User(req.body);
