@@ -50,7 +50,7 @@ export default function SignUp() {
              </div>
              <div className='fieldContainer'>
                 <label>Password* :  </label>
-                <input placeholder="password" name="password" onChange={(e) => setPassword(e.target.value)} className='signUpField' />
+                <input placeholder="password" name="password" type="password" onChange={(e) => setPassword(e.target.value)} className='signUpField' />
              </div>
               <button onClick={collectData} className='signupButton' > Sign up </button>
            </div>
