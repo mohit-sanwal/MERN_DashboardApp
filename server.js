@@ -19,6 +19,8 @@ app.post('/register', async (req, resp) => {
   let user = new User(req.body);
   console.log('user model', user);
   let result = await user.save();
+  result = result.toObject();
+  delete result.password
   console.log('user model', user);
   resp.send(result)
 })
