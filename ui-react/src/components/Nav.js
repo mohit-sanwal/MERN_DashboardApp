@@ -1,20 +1,20 @@
 import {useEffect, useState} from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import '../App.css';
 
 
-function Nav() {
-  const [user, setUser] = useState({});
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('userData'));
-    setUser(user);
-  }, [])
+const Nav = () => {
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem('userData'));
 
+  const logout = () => {
+    localStorage.clear();
+    navigate('/signup')
+  }
 
-  const displaySignUp = user?.email ? <li><Link to="/logout">logout</Link></li> :  <li><Link to="/signup">signup</Link></li>
-
+  const displaySignUp = user?.email ? <Link to="/signup" onClick={logout}>logout</Link> : <Link to="/signup">signup</Link>
   return (
     <div className="nav">
        <ul className="navList">
@@ -22,7 +22,7 @@ function Nav() {
           <li><Link to="/add">Add Products</Link></li>
           <li><Link to="/update"> update Products</Link></li>
           <li><Link to="/profile">Profile</Link></li>
-          {displaySignUp}
+          <li> {displaySignUp} </li>
        </ul>
     </div>
   );
