@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import "../App.css";
 
@@ -8,6 +8,12 @@ export default function SignUp() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+
+    useEffect(() => {
+         if (localStorage.getItem('userData')) {
+            navigate("/");
+         }
+    }, [])
 
     const collectData = async() => {
         if (!name || !email || !password) { alert('please provide all the details')}
@@ -26,6 +32,7 @@ export default function SignUp() {
         })
         const  userSignUpResp = await userSignUpData.json();
         if (userSignUpResp.email) {
+         localStorage.setItem('userData', JSON.stringify(userSignUpResp));
          navigate('/');
         }
     }

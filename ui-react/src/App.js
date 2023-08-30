@@ -5,6 +5,7 @@ import './App.css';
 import Nav from './components/Nav.js';
 import Footer from './components/Footer.jsx';
 import SignUp from './components/SignUp.js';
+import PrivateComponent from './components/PrivateComponent';
 
 
 function App() {
@@ -28,11 +29,13 @@ function App() {
       <BrowserRouter>
         <Nav></Nav>
         <Routes>
-          <Route path="/" element={<h1>Product listing</h1>}/>
-          <Route path="/add" element={<h1>add Product </h1>}/>
-          <Route path="/update" element={<h1>update Product</h1>}/>
-          <Route path="/profile" element={<h1>Profile page</h1>}/>
-          <Route path="/logout" element={<h1> logout </h1>}/>
+          <Route element={<PrivateComponent />}>
+            <Route path="/" element={<h1>Product listing</h1>}/>
+            <Route path="/add" element={<h1>add Product </h1>}/>
+            <Route path="/update" element={<h1>update Product</h1>}/>
+            <Route path="/profile" element={<h1>Profile page</h1>}/>
+            <Route path="/logout" element={<h1> logout </h1>}/>
+          </Route>
           <Route path="/signup" element={<SignUp />}/>
         </Routes>
         <Footer />
