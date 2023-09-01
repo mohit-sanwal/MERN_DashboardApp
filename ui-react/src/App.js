@@ -5,6 +5,8 @@ import './App.css';
 import Nav from './components/Nav.js';
 import Footer from './components/Footer.jsx';
 import SignUp from './components/SignUp.js';
+import LogIn from './components/LogIn.js';
+
 import PrivateComponent from './components/PrivateComponent';
 
 
@@ -36,6 +38,7 @@ function App() {
             <Route path="/profile" element={<h1>Profile page</h1>}/>
             <Route path="/logout" element={<h1> logout </h1>}/>
           </Route>
+          <Route path="/login" element={<LogIn />}/>
           <Route path="/signup" element={<SignUp />}/>
         </Routes>
         <Footer />
@@ -45,3 +48,29 @@ function App() {
 }
 
 export default App;
+
+
+// const collectLoginData = async() => {
+//   if (!email || !password) { alert('please provide all the details')}
+//   let userLoginInfo = {
+//       email,
+//       password
+//   }
+//   console.log('userLoginInfo', userLoginInfo);
+//   const userLoginData = await fetch('http://localhost:5000/login', {
+//    method: "POST",
+//    body:  JSON.stringify(userLoginInfo),
+//    headers: {
+//       'Content-Type': 'application/json'
+//    }
+//   })
+//   const  userLoginResp = await userLoginData.json();
+//   if (userLoginResp.email) {
+//    localStorage.setItem('userData', JSON.stringify(userLoginResp));
+//    navigate('/');
+//   }
+// }
+
+// onClick={collectLoginData} 
+
+// const navigate = useNavigate();

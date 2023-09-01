@@ -53,6 +53,7 @@ export default function SignUp() {
                 <input placeholder="password" name="password" type="password" onChange={(e) => setPassword(e.target.value)} className='signUpField' />
              </div>
               <button onClick={collectData} className='signupButton' > Sign up </button>
+              <button onClick={() => navigate('/login')} className='signupButton' > Log in </button>
            </div>
         </>
     )
