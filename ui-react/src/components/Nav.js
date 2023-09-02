@@ -14,15 +14,20 @@ const Nav = () => {
     navigate('/signup')
   }
 
-  const displaySignUp = user?.email ? <Link to="/signup" onClick={logout}>logout</Link> : <Link to="/signup">signup</Link>
   return (
     <div className="nav">
        <ul className="navList">
-          <li><Link to="/">Products</Link></li>
-          <li><Link to="/add">Add Products</Link></li>
-          <li><Link to="/update"> update Products</Link></li>
-          <li><Link to="/profile">Profile</Link></li>
-          <li> {displaySignUp} </li>
+        {user?.email ?
+        <>
+        <li><Link to="/">Products</Link></li>
+        <li><Link to="/add">Add Products</Link></li>
+        <li><Link to="/update"> update Products</Link></li>
+        <li><Link to="/profile">Profile</Link></li>
+        <li><Link to="/signup" onClick={logout}>logout</Link></li>
+        </>
+        :
+        <li><Link to="/signup">signup</Link></li>
+      }
        </ul>
     </div>
   );
