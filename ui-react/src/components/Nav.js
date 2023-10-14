@@ -19,14 +19,27 @@ const Nav = () => {
        <ul className="navList">
         {user?.email ?
         <>
-        <li><Link to="/">Products</Link></li>
-        <li><Link to="/add">Add Products</Link></li>
-        <li><Link to="/update"> update Products</Link></li>
-        <li><Link to="/profile">Profile</Link></li>
-        <li><Link to="/signup" onClick={logout}>logout</Link></li>
+        <div>
+          <li><Link to="/">Products</Link></li>
+          <li><Link to="/add">Add Products</Link></li>
+          <li><Link to="/update"> update Products</Link></li>
+          <li><Link to="/profile">Profile</Link></li>
+          {/* <li><Link to="/signup" onClick={logout}>logout</Link></li> */}
+        </div>
+        <div>
+              <div className="dropdown">
+              <button className="dropbtn">
+                  <img src={require("../images/userImage.png")} alt="User Image" className="user-image" />
+                  <span className="userName"> {user.name} </span>
+              </button>
+              <div className="dropdown-content">
+                  <a onClick={logout}>logout</a>
+              </div>
+            </div>
+        </div>
         </>
         :
-        <li><Link to="/signup">signup</Link></li>
+        <li><Link to="/signup">signup/Login</Link></li>
       }
        </ul>
     </div>

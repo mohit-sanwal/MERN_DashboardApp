@@ -1,7 +1,6 @@
 
 .nav {
   background: black;
-  padding: 15px 0px 1px;
 }
 
 .container{
@@ -11,10 +10,24 @@
 .navList {
   display: flex;
   list-style: none;
+  justify-content: space-between;
 }
 
-.navList li {
-  padding: 10px;
+.navList div:nth-of-type(1) {
+  flex-basis: 90%;
+}
+.navList>div>li {
+  padding: 21px 20px 0px 20px;
+  display: inline-block;
+}
+
+.navList>div>li a {
+  color: white;
+}
+
+.navList li  {
+  padding:  24px 20px 18px 20px;
+  display: inline-block;
 }
 
 .navList li a {
@@ -71,4 +84,72 @@
   border: none;
 }
 
+.userName {
+  display: flex;
+}
+
+
+
+/*** user icon image */
+
+/* Style the dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding: 12px 0px 5px 0px;
+}
+
+/* Style the dropdown button */
+.dropbtn {
+    background-color: black;
+    color: white;
+    /* padding: 10px; */
+    border: none;
+    cursor: pointer;
+}
+
+/* Style the user image */
+.user-image {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 97px;
+    right: 6px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Style the dropdown links */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Show the dropdown content when hovering over the dropdown button */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Position the dropdown content above the dropdown button */
+.dropdown-content {
+    /* top: -130%; */
+    
+}
 
