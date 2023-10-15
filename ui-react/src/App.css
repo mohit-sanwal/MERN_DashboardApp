@@ -183,7 +183,7 @@ input[type="text"] {
 }
 
 
-input[type="submit"] {
+input[type="button"] {
   background-color: #007BFF;
   color: #fff;
   padding: 10px 15px;
@@ -192,6 +192,6 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
+input[type="button"]:hover {
   background-color: #0056b3;
 }

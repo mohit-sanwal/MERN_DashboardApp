@@ -6,9 +6,11 @@ import Nav from './components/Nav.js';
 import Footer from './components/Footer.jsx';
 import SignUp from './components/SignUp.js';
 import LogIn from './components/LogIn.js';
-import AddProduct from './components/AddProduct';
+import AddProductComp from './components/AddProductComp';
 
 import PrivateComponent from './components/PrivateComponent';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -29,12 +31,13 @@ function App() {
   console.log('appData', appData);
   return (
     <>
+     <ToastContainer />
       <BrowserRouter>
         <Nav></Nav>
         <Routes>
           <Route element={<PrivateComponent />}>
             <Route path="/" element={<h1>Product listing</h1>}/>
-            <Route path="/add" element={<h1><AddProduct /> </h1>}/>
+            <Route path="/add" element={<h1><AddProductComp /> </h1>}/>
             <Route path="/update" element={<h1>update Product</h1>}/>
             <Route path="/profile" element={<h1>Profile page</h1>}/>
             <Route path="/logout" element={<h1> logout </h1>}/>
